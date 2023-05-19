@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import log from "../../assets/images/logo.png"
+import logo from "../../assets/images/logo.png"
 const Header = () => {
     return (
         <div className="navbar bg-base-100 border border-success rounded-lg shadow-md">
@@ -23,7 +23,7 @@ const Header = () => {
                 </div>
 
                 <div className=" mask mask-hexagon">
-                    <img className='w-12 h-12' src={log} alt="" />
+                    <img className='w-12 h-12 border-2 border-error' src={logo} alt="" />
                 </div>
 
 
