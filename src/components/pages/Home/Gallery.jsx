@@ -17,12 +17,12 @@ const Gallery = () => {
         <div className='my-8'>
 
             <h1 className='text-center text-4xl font-bold my-8'>Our Toy Gallery</h1>
-            <div className='border-2 border-black flex gap-4 p-8  bg-slate-500 rounded-lg'>
+            <div className='border-2 border-black lg:flex gap-4 p-8  bg-slate-500 rounded-lg'>
                 <div className='grid gap-2'>
                     <div>
                         <img className='border border-white h-96 w-96 drop-shadow-2xl rounded-lg' src={toy1} alt="" />
                     </div>
-                    <div className='flex gap-3'>
+                    <div className='lg:flex gap-3'>
                         <img className='h-72 w-52 border border-white drop-shadow-2xl rounded-lg ' src={toy4} alt="" />
                         <img className='h-72 w-52 border border-white drop-shadow-2xl rounded-lg' src={toy3} alt="" />
 

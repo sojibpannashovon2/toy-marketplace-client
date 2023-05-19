@@ -4,6 +4,26 @@ import { Link } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 
 const LogIn = () => {
+
+
+    // const { logIn } = useContext(authContext)
+
+    const handleLogIn = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        // logIn(email, password)
+        //     .then(result => {
+        //         const loggedUser = result.user;
+        //         console.log(loggedUser);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+    }
     return (
         <div className="hero min-h-screen bg-base-200 my-6">
             <div className="hero-content flex-col lg:flex-row ">
@@ -14,7 +34,7 @@ const LogIn = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border border-white">
                     <h1 className="text-4xl text-center my-2 font-bold">Login now!</h1>
                     <div className="card-body">
-                        <form >
+                        <form onSubmit={handleLogIn}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
