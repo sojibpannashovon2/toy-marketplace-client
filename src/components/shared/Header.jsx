@@ -1,10 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
 import { AuthContext } from '../../providers/AuthProvider2';
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext)
+
+    const [showName, setShowName] = useState(false);
+
+    const handleHover = () => {
+        setShowName(true);
+    };
+
+    const handleLeave = () => {
+        setShowName(false);
+    };
 
     const handleLogOut = () => {
         logOut()
@@ -55,16 +65,33 @@ const Header = () => {
                     <li>
                         <Link to="/blog" className='text-md font-semibold'>Blog</Link>
                     </li>
+
+                    <div className="">
+                        {
+                            user && <> <img
+
+                                className="rounded border border-error" style={{ height: "40px", width: "40px" }} src={user?.photoURL} alt="Not Found"
+                                onMouseEnter={handleHover}
+                                onMouseLeave={handleLeave}
+
+                            />
+                                {showName && <div className="profile-name">{user.displayName}</div>}
+                            </>
+                        }
+                    </div>
+
+                    {
+                        user?.email ? <>
+                            <li><Link className='font-bold  text-md' to="/addtoy">Add-Toy</Link></li>
+                            <li><Link className='font-bold text-md ml-2' to="/mytoys">My-Toys</Link></li>
+                            <li> <Link onClick={handleLogOut} className='font-md ml-10 btn btn-error text-white text-md' >Log-Out</Link></li>
+                        </>
+                            : <li> <Link className='font-bold text-xl' to="login">Log-In</Link></li>
+                    }
                 </ul>
             </div>
-            {
-                user?.email ? <>
-                    <li><Link className='font-bold ml-6  text-md' to="/addtoy">Add-Toy</Link></li>
-                    <li><Link className='font-bold text-md ml-4' to="/mytoys">My-Toys</Link></li>
-                    <li> <Link onClick={handleLogOut} className='font-md ml-10 btn btn-error text-white text-xl' >Log-Out</Link></li>
-                </>
-                    : <li> <Link className='font-bold text-xl' to="login">Log-In</Link></li>
-            }
+
+
             {/* <div className="navbar-end">
                 <Link to='/login' className="btn btn-outline px-4">Log-In</Link>
 
