@@ -17,7 +17,7 @@ const Header = () => {
                             <Link>All Toys</Link>
                         </li>
                         <li>
-                            <Link>Log-In</Link>
+                            <Link to="/login">Log-In</Link>
                         </li>
                     </ul>
                 </div>
@@ -39,7 +39,7 @@ const Header = () => {
                         <Link className='text-md font-semibold'>All Toys</Link>
                     </li>
                     <li>
-                        <Link className='text-md font-semibold'>Log-In</Link>
+                        <Link to="/login" className='text-md font-semibold'>Log-In</Link>
                     </li>
                 </ul>
             </div>

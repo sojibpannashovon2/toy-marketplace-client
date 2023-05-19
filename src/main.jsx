@@ -11,6 +11,7 @@ import {
 import Home from './components/pages/Home/Home';
 import Main from './layout/Main';
 import Blog from './components/pages/Blog/Blog';
+import LogIn from './components/Log/LogIn';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "login",
+        element: <LogIn></LogIn>
       },
     ]
   },
