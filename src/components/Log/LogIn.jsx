@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import login from '../../assets/images/login.png'
+import { AuthContext } from '../../providers/AuthProvider2';
 
 const LogIn = () => {
 
-
-    // const { logIn } = useContext(authContext)
+    const [error, setError] = useState(null)
+    const { logIn } = useContext(AuthContext)
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -15,14 +16,15 @@ const LogIn = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        // logIn(email, password)
-        //     .then(result => {
-        //         const loggedUser = result.user;
-        //         console.log(loggedUser);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+        logIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message)
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200 my-6">
@@ -51,8 +53,9 @@ const LogIn = () => {
                                 </label>
                             </div>
                             <small>Are you new to website<Link
-                                className='ml-4 btn btn-outline'
+                                className='ml-4 mb-3 btn btn-outline'
                                 to='/signup'> Please Register</Link></small>
+                            <small className='my-5 text-center text-error'>{error}</small>
                             <div className="form-control mt-6">
 
                                 <input className="btn btn-primary" type="submit" value="Log-in" name="" id="" />

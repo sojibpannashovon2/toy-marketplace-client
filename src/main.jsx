@@ -14,6 +14,12 @@ import Blog from './components/pages/Blog/Blog';
 import LogIn from './components/Log/LogIn';
 import Registration from './components/Log/Registration';
 
+import AuthProvider2 from './providers/AuthProvider2';
+import AllToy from './components/AllToy/AllToy';
+import MyToys from './components/MyToys/MyToys';
+import AddToy from './components/AddToy/AddToy';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +32,18 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "alltoys",
+        element: <AllToy></AllToy>
+      },
+      {
+        path: "mytoys",
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "addtoy",
+        element: <AddToy></AddToy>
       },
       {
         path: "login",
@@ -41,8 +59,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='text-white max-w-6xl mx-auto '>
+
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <AuthProvider2>
+        <RouterProvider router={router} />
+      </AuthProvider2>
     </React.StrictMode>
+
   </div>
 )

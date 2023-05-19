@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import login from '../../assets/images/login.png'
 
+import { AuthContext } from '../../providers/AuthProvider2';
+
+
+
 const Registration = () => {
-    // const { createUser } = useContext(authContext)
+    const { createUser } = useContext(AuthContext)
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -14,14 +18,14 @@ const Registration = () => {
         const password = form.password.value;
         console.log(name, email, password);
 
-        // createUser(email, password)
-        //     .then(result => {
-        //         const loggedUser = result.user;
-        //         console.log(loggedUser);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+        createUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200 my-6">

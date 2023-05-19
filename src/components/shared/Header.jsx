@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/images/logo.png"
+import { AuthContext } from '../../providers/AuthProvider2';
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                alert("log-out successfully")
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <div className="navbar bg-base-100 border border-success rounded-lg shadow-md">
             <div className="navbar-start">
@@ -36,17 +50,25 @@ const Header = () => {
                         <Link to="/" className='text-md font-semibold'>Home</Link>
                     </li>
                     <li >
-                        <Link className='text-md font-semibold'>All Toys</Link>
+                        <Link to='/alltoys' className='text-md font-semibold'>All Toys</Link>
                     </li>
                     <li>
-                        <Link to="/login" className='text-md font-semibold'>Log-In</Link>
+                        <Link to="/blog" className='text-md font-semibold'>Blog</Link>
                     </li>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link to='/blog' className="btn btn-outline px-4">Blog</Link>
+            {
+                user?.email ? <>
+                    <li><Link className='font-bold ml-6  text-md' to="/addtoy">Add-Toy</Link></li>
+                    <li><Link className='font-bold text-md ml-4' to="/mytoys">My-Toys</Link></li>
+                    <li> <Link onClick={handleLogOut} className='font-md ml-10 btn btn-error text-white text-xl' >Log-Out</Link></li>
+                </>
+                    : <li> <Link className='font-bold text-xl' to="login">Log-In</Link></li>
+            }
+            {/* <div className="navbar-end">
+                <Link to='/login' className="btn btn-outline px-4">Log-In</Link>
 
-            </div>
+            </div> */}
         </div>
     );
 };
