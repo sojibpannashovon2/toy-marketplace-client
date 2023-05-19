@@ -35,7 +35,8 @@ const router = createBrowserRouter([
       },
       {
         path: "alltoys",
-        element: <AllToy></AllToy>
+        element: <AllToy></AllToy>,
+        loader: () => fetch(`http://localhost:2000/toyshops`)
       },
       {
         path: "mytoys",
