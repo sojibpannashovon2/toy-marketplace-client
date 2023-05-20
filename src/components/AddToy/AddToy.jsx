@@ -12,7 +12,7 @@ const AddToy = () => {
         const name = form.name.value;
 
         const sellerName = user.displayName;
-
+        const email = user.email
         const quantity = form.quantity.value;
         const price = form.price.value;
         const rate = form.rate.value;
@@ -20,7 +20,7 @@ const AddToy = () => {
         const details = form.details.value;
         const photo = form.photo.value;
 
-        const newToy = { name, sellerName, quantity, price, rate, catagory, details, photo }
+        const newToy = { name, sellerName, email, quantity, price, rate, catagory, details, photo }
         console.log(newToy);
 
         fetch(`http://localhost:2000/toyshops`, {
