@@ -18,6 +18,8 @@ import AuthProvider2 from './providers/AuthProvider2';
 import AllToy from './components/AllToy/AllToy';
 import MyToys from './components/MyToys/MyToys';
 import AddToy from './components/AddToy/AddToy';
+import AllToysDetails from './components/AllToy/AllToysDetails';
+
 
 
 const router = createBrowserRouter([
@@ -34,10 +36,17 @@ const router = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
-        path: "alltoys",
+        path: "toyshops",
         element: <AllToy></AllToy>,
         loader: () => fetch(`http://localhost:2000/toyshops`)
       },
+
+      {
+        path: "toyshops/:id",
+        element: <AllToysDetails></AllToysDetails>,
+
+      },
+
       {
         path: "mytoys",
         element: <MyToys></MyToys>
@@ -56,6 +65,7 @@ const router = createBrowserRouter([
       },
     ]
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -60,7 +60,7 @@ const Header = () => {
                         <Link to="/" className='text-md font-semibold'>Home</Link>
                     </li>
                     <li >
-                        <Link to='/alltoys' className='text-md font-semibold'>All Toys</Link>
+                        <Link to='/toyshops' className='text-md font-semibold'>All Toys</Link>
                     </li>
                     <li>
                         <Link to="/blog" className='text-md font-semibold'>Blog</Link>

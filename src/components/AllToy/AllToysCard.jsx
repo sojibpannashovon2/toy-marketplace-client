@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import AllToysDetails from './AllToysDetails';
 
 const AllToysCard = ({ pd }) => {
     //     Seller: (if available) show the name of the person who posted the toy
@@ -7,6 +9,10 @@ const AllToysCard = ({ pd }) => {
     // Price
     // Available Quantity
     // View Details button
+    useEffect(() => {
+        const url = `http://localhost:2000/toyshops/${_id}`
+        fetch
+    }, [])
     const { name, photo, sellerName, price, catagory, _id, quantity } = pd;
     return (
         <div className="card w-80  bg-base-100 shadow-xl border border-purple-400">
@@ -28,7 +34,19 @@ const AllToysCard = ({ pd }) => {
                 </div>
                 <div className="card-actions justify-between my-3">
                     <div className="badge badge-outline">Quantity: {quantity}</div>
-                    <div className="btn btn-outline">Products</div>
+
+                    {/* 
+                    <Link htmlFor="my-modal" to={`/toyshops/${_id}`}>
+                        <div >View-Details</div>
+                    </Link> */}
+
+                    {
+                        <AllToysDetails
+                            pd={pd}></AllToysDetails>
+                    }
+
+
+
                 </div>
             </div>
         </div>
