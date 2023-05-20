@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import AllToysDetails from './AllToysDetails';
+import { Link } from 'react-router-dom';
+
 
 const AllToysCard = ({ pd }) => {
-    //     Seller: (if available) show the name of the person who posted the toy
-    // Toy Name
-    // Sub-category
-    // Price
-    // Available Quantity
-    // View Details button
-    useEffect(() => {
-        const url = `http://localhost:2000/toyshops/${_id}`
-        fetch
-    }, [])
     const { name, photo, sellerName, price, catagory, _id, quantity } = pd;
+
+    const [modal, setModal] = useState()
+    const url = `http://localhost:2000/toyshops/${_id}`
+    useEffect(() => {
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setModal(data))
+
+    }, [url])
+    console.log(modal);
     return (
         <div className="card w-80  bg-base-100 shadow-xl border border-purple-400">
             <figure>
@@ -35,15 +38,19 @@ const AllToysCard = ({ pd }) => {
                 <div className="card-actions justify-between my-3">
                     <div className="badge badge-outline">Quantity: {quantity}</div>
 
-                    {/* 
-                    <Link htmlFor="my-modal" to={`/toyshops/${_id}`}>
-                        <div >View-Details</div>
-                    </Link> */}
 
-                    {
-                        <AllToysDetails
-                            pd={pd}></AllToysDetails>
-                    }
+                    {/* <label htmlFor="my-modal" className="btn btn-outline">
+
+                        <Link className='btn btn-accent' to={`/toyshops/${_id}`}>
+                            <div >View-Details</div>
+                        </Link>
+                    </label> */}
+
+                    <Link className='btn btn-accent' to={`/toyshops/${_id}`}>
+                        <div >View-Details</div>
+                    </Link>
+
+
 
 
 
