@@ -1,7 +1,10 @@
 import React from 'react';
 import error from '../../assets/images/error.avif'
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 const ErrorPage = () => {
+
+    useTitle("Error")
     return (
         <div className='mx-auto w-[60%]'>
             <img className='shadow-xl border-2 border-primary rounded-xl' src={error} alt="" />

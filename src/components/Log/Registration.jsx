@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 
 import { AuthContext } from '../../providers/AuthProvider2';
+import useTitle from '../../hooks/useTitle';
 
 
 
 const Registration = () => {
     const [error, setError] = useState(null)
     const { createUser, updateUserProfile } = useContext(AuthContext)
-
+    useTitle("Register")
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;

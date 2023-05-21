@@ -7,12 +7,14 @@ import {
 
 import login from '../../assets/images/login.png'
 import { AuthContext } from '../../providers/AuthProvider2';
+import useTitle from '../../hooks/useTitle';
 
 const LogIn = () => {
 
     const [error, setError] = useState(null)
     const { logIn, googleSignIn } = useContext(AuthContext)
 
+    useTitle("LogIn")
     const navigate = useNavigate();
     const location = useLocation()
 

@@ -7,7 +7,7 @@ const UpdateToys = () => {
 
     const { user } = useContext(AuthContext)
     const toy = useLoaderData()
-    const { _id, name, quantity, price, rate, catagory, details, photo } = toy
+    const { _id, name, quantity, price, rate, catagory, details, photo } = toy || {}
 
     const handleForm = (event) => {
         event.preventDefault();
@@ -26,7 +26,7 @@ const UpdateToys = () => {
         const updateToy = { name, sellerName, email, quantity, price, rate, catagory, details, photo }
         console.log(updateToy);
 
-        fetch(`http://localhost:2000/mytoys/${_id}`, {
+        fetch(`https://gamezone-toy-shop-server.vercel.app/mytoys/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -128,9 +128,9 @@ const UpdateToys = () => {
                         <label className="input-group input-group-vertical">
                             <span>Choose a Catagory: </span>
                             <select name="catagory" defaultValue={catagory} className="input input-bordered lg:px-28">
-                                <option value="Action_Game_Toy">Action Game Toy</option>
-                                <option value="Action_Game_Toy">Survival Game Toy</option>
-                                <option value="Action_Game_Toy">Raceing Game Toy</option>
+                                <option value="Action_Toy">Action Game Toy</option>
+                                <option value="Survival_Toy">Survival Game Toy</option>
+                                <option value="Racing_Toy">Racing Game Toy</option>
 
                             </select>
                             {/* <input type="text" name="catagory" placeholder="Enter Toy catagory" required className="input input-bordered lg:px-24" /> */}

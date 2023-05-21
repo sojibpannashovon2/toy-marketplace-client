@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysCard from './AllToysCard';
+import useTitle from '../../hooks/useTitle';
 
 const AllToy = () => {
 
-
+    useTitle("AllToy")
     const data = useLoaderData()
     console.log(data);
     return (

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysDetails from './MyToysDetails';
 import { AuthContext } from '../../providers/AuthProvider2';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 const MyToys = () => {
 
@@ -10,8 +11,8 @@ const MyToys = () => {
 
     const [addToy, setAddToy] = useState([])
 
-
-    const url = `http://localhost:2000/mytoys?email=${user?.email}`
+    useTitle("MyToys")
+    const url = `https://gamezone-toy-shop-server.vercel.app/mytoys?email=${user?.email}`
 
     useEffect(() => {
 

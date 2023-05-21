@@ -8,7 +8,7 @@ const AllToysCard = ({ pd }) => {
     const { name, photo, sellerName, price, catagory, _id, quantity } = pd;
 
     const [modal, setModal] = useState()
-    const url = `http://localhost:2000/toyshops/${_id}`
+    const url = `https://gamezone-toy-shop-server.vercel.app/toyshops/${_id}`
     useEffect(() => {
 
         fetch(url)
