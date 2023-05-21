@@ -21,6 +21,7 @@ import AddToy from './components/AddToy/AddToy';
 import AllToysDetails from './components/AllToy/AllToysDetails';
 import PrivateRoute from './components/routes/PrivateRoute';
 import UpdateToys from './components/MyToys/UpdateToys';
+import ErrorPage from './components/shared/ErrorPage';
 
 
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
