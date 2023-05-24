@@ -37,7 +37,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:2000/mytoys/${id}`, {
+                fetch(`https://gamezone-toy-shop-server.vercel.app/mytoys/${id}`, {
                     method: "DELETE",
 
                 })
@@ -62,18 +62,6 @@ const MyToys = () => {
     }
 
 
-
-    // const handleDelete = (id) => {
-    //     console.log(id);
-    //     fetch(`http://localhost:2000/mytoys/${id}`, {
-    //         method: "DELETE"
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //         })
-    // }
-
     return (
         <div className="overflow-x-auto w-full my-8">
             <h1 className='text-center my-4'>Toys-Count: {addToy.length}</h1>
@@ -87,9 +75,11 @@ const MyToys = () => {
                                 <input type="checkbox" className="checkbox" />
                             </label> */}
                         </th>
-                        <th className='text-xl font-bond'>Name</th>
-                        <th className='text-xl font-bond'>Job</th>
-                        <th className='text-xl font-bond'>Favorite Color</th>
+                        <th className='text-xl font-bond'>Photo</th>
+
+                        <th className='text-xl font-bond'>Price</th>
+                        <th className='text-xl font-bond'>Quanity</th>
+                        <th className='text-xl font-bond'>Ratting</th>
                         <th className='text-xl font-bond'>Update</th>
                     </tr>
                 </thead>

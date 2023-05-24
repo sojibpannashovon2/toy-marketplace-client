@@ -3,7 +3,8 @@ import logo from "../../assets/images/logo.png"
 import {
     FaFacebook,
     FaTwitter,
-    FaYoutube
+    FaYoutube,
+    FaGitSquare
 } from 'react-icons/fa';
 const Footer = () => {
     return (
@@ -28,8 +29,11 @@ const Footer = () => {
                         <FaFacebook className='w-5 h-5 '>
                         </FaFacebook>
                     </a>
+                    <a href="https://github.com/sojibpannashovon2">
 
-                    <FaTwitter className='w-5 h-5 '></FaTwitter>
+                        <FaGitSquare className='w-6 h-6'></FaGitSquare>
+                    </a>
+
                     <a href="https://www.youtube.com/channel/UCIUfEtViFNKiD3VRDqFPQXA">
                         <FaYoutube className='w-5 h-5 '></FaYoutube>
                     </a>

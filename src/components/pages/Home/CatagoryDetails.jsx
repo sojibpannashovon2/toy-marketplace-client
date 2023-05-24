@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider2';
 
 const CatagoryDetails = ({ toy }) => {
+    const { user } = useContext(AuthContext)
     console.log(toy);
     const { name, photo, sellerName, price, catagory, _id, quantity } = toy;
     return (
@@ -18,10 +20,11 @@ const CatagoryDetails = ({ toy }) => {
                     <div className="badge badge-outline">Price: {toy?.price}</div>
                     <div className="badge badge-outline">Quantity: {toy?.quantity}</div>
                 </div>
-
                 <Link to={`/toyshops/${toy._id}`} className='btn btn-outline' >
                     View Details
+
                 </Link>
+
 
             </div>
         </div>
